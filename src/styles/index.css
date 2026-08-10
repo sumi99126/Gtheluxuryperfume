@@ -1,0 +1,434 @@
+/* ==========================================================================
+   G THE LUXURY FRAGRANCE - EDITORIAL LUXURY LIGHT DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Royal Gold & Light Metallic Palette */
+  --gold-primary: #C5A059;
+  --gold-accent: #B38728;
+  --gold-deep: #8E6516;
+  --gold-light: #F7E7C4;
+  --gold-glow: rgba(197, 160, 89, 0.25);
+  --gold-border: rgba(197, 160, 89, 0.3);
+
+  /* Pristine Pure White & Ivory Palette */
+  --bg-main: #FFFFFF;
+  --bg-pure: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-soft: #FAF8F5;
+
+  /* Typography Colors */
+  --text-darkest: #111111;
+  --text-dark: #222222;
+  --text-muted: #666666;
+  --text-light-muted: #8E8E93;
+  --text-gold: #A87D25;
+
+  /* Typography Fonts */
+  --font-hero: 'Bodoni Moda', 'Playfair Display', 'Cinzel', serif;
+  --font-serif: 'Cinzel', serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-main);
+  color: var(--text-darkest);
+  font-family: var(--font-sans);
+}
+
+body {
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  color: var(--text-darkest);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 3px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Typography Classes */
+.font-catilde {
+  font-family: 'Fd Catilde Regular', 'Fd Catilde', 'Catilde', 'Bodoni Moda', 'Didot', 'Playfair Display', 'Cinzel', 'Italiana', serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.font-reference-title {
+  font-family: 'Bodoni Moda', 'Didot', 'Playfair Display', 'Cinzel', 'Italiana', serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.font-rische {
+  font-family: 'Rische Medium', 'Rische', 'Bodoni Moda', 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.font-bodoni {
+  font-family: 'Bodoni Moda', 'Playfair Display', serif;
+  letter-spacing: 0.04em;
+}
+
+.font-cinzel {
+  font-family: var(--font-serif);
+  letter-spacing: 0.12em;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-montserrat {
+  font-family: var(--font-sans);
+}
+
+/* Luxury Buttons */
+.btn-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2.2rem;
+  background-color: #C5A059;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 18px rgba(197, 160, 89, 0.35);
+}
+.btn-pill-dark:hover {
+  background-color: #111111;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Luxury Carousel Animations & Classes */
+.carousel-slide {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.carousel-slide.inactive {
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+}
+
+@keyframes logoFloatBreath {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.08));
+  }
+  50% {
+    transform: translateY(-8px) scale(1.025);
+    filter: drop-shadow(0 14px 24px rgba(197, 160, 89, 0.25));
+  }
+}
+
+@keyframes goldGlowPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes kenBurnsZoom {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.065) translate(-0.4%, -0.4%);
+  }
+  100% {
+    transform: scale(1.03) translate(0.4%, 0.4%);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurnsZoom 7.5s ease-in-out infinite alternate;
+}
+
+.animate-logo-float {
+  animation: logoFloatBreath 3.5s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: goldGlowPulse 3s ease-in-out infinite;
+}
+
+/* Right Slide-over Cart Drawer */
+.cart-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 440px;
+  background-color: #FFFFFF;
+  z-index: 9999;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer-panel.open {
+  transform: translateX(0);
+}
+
+/* Infinite Testimonials Marquee Animations */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 38s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 38s linear infinite;
+}
+
+.marquee-row:hover .animate-marquee-left,
+.marquee-row:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS MEDIA QUERIES
+   ========================================================================== */
+
+/* Mobile Left Drawer */
+.mobile-left-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 99998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-left-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-left-drawer-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(340px, 85vw);
+  background-color: #FFFFFF;
+  z-index: 99999;
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-left-drawer-panel.open {
+  transform: translateX(0);
+}
+
+/* Category Icons Responsive Grid */
+.category-icons-container {
+  display: flex;
+  overflow-x: auto;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #EFEBE4;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* Mobile Break & Heading Helpers */
+.mobile-break {
+  display: none;
+}
+.desktop-shop-heading {
+  display: inline;
+}
+.mobile-shop-heading {
+  display: none;
+}
+
+/* Mobile & Tablet Styles (< 900px) */
+@media (max-width: 900px) {
+  .mobile-break {
+    display: block !important;
+  }
+  .desktop-shop-heading {
+    display: none !important;
+  }
+  .mobile-shop-heading {
+    display: block !important;
+    font-size: clamp(1.65rem, 6vw, 2.3rem) !important;
+    line-height: 1.2 !important;
+  }
+  .desktop-nav-links {
+    display: none !important;
+  }
+  .desktop-currency-switcher {
+    display: none !important;
+  }
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+  .hero-price-tag {
+    display: none !important;
+  }
+  .cart-drawer-panel {
+    max-width: 100vw !important;
+  }
+  .shop-layout-container {
+    grid-template-columns: 1fr !important;
+  }
+  .shop-sidebar-desktop {
+    display: none !important;
+  }
+  .shop-mobile-filter-bar {
+    display: flex !important;
+  }
+  .shop-products-grid,
+  .home-recommendation-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  .feature-banner-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .spotlight-showcase-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* 2 items per row in 2-3 rows on mobile */
+  .category-icons-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    overflow-x: visible !important;
+    border-radius: 12px !important;
+  }
+  .category-icon-btn {
+    border-right: 1px solid #F4F0E8 !important;
+    border-bottom: 1px solid #F4F0E8 !important;
+    padding: 1.25rem 0.75rem !important;
+    min-width: unset !important;
+  }
+}
+
+/* Small Mobile Screens (< 640px) */
+@media (max-width: 640px) {
+  .shop-products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  .home-recommendation-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  .cta-content-container {
+    padding: 2rem 1.25rem !important;
+  }
+  .footer-directory-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .hero-main-title {
+    white-space: normal !important;
+    line-height: 1.15 !important;
+    font-size: 2.15rem !important;
+  }
+  .contact-form-grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-form-card {
+    padding: 1.5rem 1.15rem !important;
+  }
+}
